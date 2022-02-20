@@ -72,8 +72,8 @@ def getCalendarFor(year, month):
 calendarText = getCalendarFor(year,month)
 print(calendarText)
 
-# calendarFileName = "calendar_{}_{}.txt".format(year,month)
-# with open(calendarFileName, "w") as fileObj:
-#     fileObj.write(calendarText)
+calendarFileName = "calendar_{}_{}.txt".format(year,month)
+with open(calendarFileName, "w") as fileObj:
+    fileObj.write(calendarText)
 
 print("Saved to " + calendarFileName)
