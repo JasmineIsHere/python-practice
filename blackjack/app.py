@@ -1,7 +1,5 @@
-from pydoc import cli
 from random import *
 from sys import *
-from xml.etree import ElementInclude
 
 HEARTS = chr(9829)
 DIAMONDS = chr(9830)
@@ -55,6 +53,7 @@ Rules:
                 break
 
             move = getMove(playerHand, money - bet)
+
             if move == "D":
                 additionalBet = getBet(min(bet, (money - bet)))
                 bet += additionalBet
@@ -70,8 +69,8 @@ Rules:
                 if getHandValue(playerHand) > 21:
                     #player busted
                     continue
-            
-            if move in ("S", "D"):
+
+            elif move in ("S"):
                 break
         
         ## dealer's turn to draw
@@ -84,30 +83,29 @@ Rules:
                 if getHandValue(dealerHand) > 21:
                     #dealer busted
                     break
-                input("Press Enter to continue")
-                print("\n\n")
+                input("Press Enter to continue > ")
             
             #show final hands
             displayHands(playerHand, dealerHand, True)
 
-            playerValue = getHandValue(playerHand)
-            dealerValue = getHandValue(dealerHand)
+        playerValue = getHandValue(playerHand)
+        dealerValue = getHandValue(dealerHand)
 
-            #check who won
-            if dealerValue > 21:
-                print("DEALER busts! You win ${}".format(bet))
-                money += bet
-            elif (playerValue > 21) or (playerValue < dealerValue):
-                print("You Lost!")
-                money -= bet
-            elif playerValue > dealerValue:
-                print("You won ${}".format(bet))
-                money += bet
-            elif playerValue == dealerValue:
-                print("It's a tie, the bet is returned to you")
-            
-            input("Press Enter to continue")
-            print("\n\n")
+        #check who won
+        if dealerValue > 21:
+            print("DEALER busts! You win ${}".format(bet))
+            money += bet
+        elif (playerValue > 21) or (playerValue < dealerValue):
+            print("You Lost!")
+            money -= bet
+        elif playerValue > dealerValue:
+            print("You won ${}".format(bet))
+            money += bet
+        elif playerValue == dealerValue:
+            print("It's a tie, the bet is returned to you")
+        
+        input("Press Enter to continue > ")
+        print("\n\n")
 
 
 def getBet(maxBet):
@@ -217,5 +215,5 @@ def getMove(playerHand, money):
 
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     main()
