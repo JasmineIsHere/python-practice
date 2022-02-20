@@ -186,7 +186,7 @@ def displayCards(cards):
     rows = ["", "", "", "", ""]
 
     for i, card in enumerate(cards):
-        rows[0] += "___ "
+        rows[0] += " ___ "
         if card == BACKSIDE:
             rows[1] += '|## |'
             rows[2] += '|###|'
