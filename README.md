@@ -7,3 +7,5 @@ based on AL SWEIGART's [THE BIG BOOK OF SMALL PYTHON PROJECTS](https://inventwit
 - Bagels Game
 - Blackjack
 - Calendar maker
+- Countdown
+- Clock
